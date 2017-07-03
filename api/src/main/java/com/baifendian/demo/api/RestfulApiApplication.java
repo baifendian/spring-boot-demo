@@ -1,6 +1,8 @@
 package com.baifendian.demo.api;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Restful Api 应用
@@ -9,6 +11,8 @@ import org.springframework.boot.SpringApplication;
  * @author : shuanghu
  * @date : 17-6-28
  */
+@SpringBootApplication()
+@ComponentScan("com.baifendian.demo")
 public class RestfulApiApplication {
 
   /**
