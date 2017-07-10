@@ -1,7 +1,7 @@
 package com.baifendian.demo.dao.mysql.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+import com.baifendian.demo.common.consts.Constants;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 /**
@@ -26,13 +26,13 @@ public class Session {
   /**
    * 用户登录时间
    */
-  @JsonSerialize(using = DateSerializer.class)
+  @JsonFormat(pattern = Constants.BASE_DATETIME_FORMAT)
   private Date startTime;
 
   /**
    * 用户Session过期时间
    */
-  @JsonSerialize(using = DateSerializer.class)
+  @JsonFormat(pattern = Constants.BASE_DATETIME_FORMAT)
   private Date endTime;
 
   /**
@@ -40,5 +40,43 @@ public class Session {
    */
   private User user;
 
+  public String getId() {
+    return id;
+  }
 
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getIp() {
+    return ip;
+  }
+
+  public void setIp(String ip) {
+    this.ip = ip;
+  }
+
+  public Date getStartTime() {
+    return startTime;
+  }
+
+  public void setStartTime(Date startTime) {
+    this.startTime = startTime;
+  }
+
+  public Date getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(Date endTime) {
+    this.endTime = endTime;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 }

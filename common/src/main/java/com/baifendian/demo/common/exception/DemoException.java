@@ -1,4 +1,4 @@
-package com.baifendian.demo.exception;
+package com.baifendian.demo.common.exception;
 
 /**
  * 自定义异常类型，支持国际化，可以携带国际化的msgKey

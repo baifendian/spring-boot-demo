@@ -1,7 +1,7 @@
 package com.baifendian.demo.api.controller;
 
 import com.baifendian.demo.api.dto.BaseResponse;
-import com.baifendian.demo.exception.DemoException;
+import com.baifendian.demo.common.exception.DemoException;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
