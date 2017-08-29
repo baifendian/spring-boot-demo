@@ -41,7 +41,7 @@ public class BaseResponseUtils {
         return code;
       }
 
-      LOGGER.info("code: {}, msg: {}", code, msg);
+      LOGGER.debug("code: {}, msg: {}", code, msg);
     }
 
     return msg;
