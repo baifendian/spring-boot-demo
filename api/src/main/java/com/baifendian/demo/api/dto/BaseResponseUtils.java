@@ -20,28 +20,30 @@ public class BaseResponseUtils {
   private static Logger LOGGER = LoggerFactory.getLogger(BaseResponseUtils.class);
 
   @Autowired
-  private MessageSource messageSource;
+  public void setMessageSource(MessageSource messageSource) {
+    BaseResponseUtils.messageSource = messageSource;
+  }
+
+  static private MessageSource messageSource;
 
   /**
-   * baseResponse国际化
+   * 国际化
    *
-   * @param baseResponse
    */
-  public void baseResponseTranslation(BaseResponse baseResponse) {
-    String code = baseResponse.getCode();
+  static public String baseResponseTranslation(String code, Object... args) {
     String msg = null;
 
     if (!StringUtils.isEmpty(code)) {
       try {
-        msg = messageSource.getMessage(code, baseResponse.getArgs(), LocaleContextHolder.getLocale());
-        baseResponse.setMsg(msg);
+        msg = messageSource.getMessage(code, args, LocaleContextHolder.getLocale());
       } catch (Exception e) {
-        baseResponse.setMsg(code);
         LOGGER.error("Translation baseResponse error!", e);
-        return;
+        return code;
       }
 
       LOGGER.info("code: {}, msg: {}", code, msg);
     }
+
+    return msg;
   }
 }
